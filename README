@@ -1,0 +1,21 @@
+python team22_train.py
+를 실행하면 mode를 고르라는 메시지가 출력됩니다.
+
+mode 1은 unique method 2개(normalization, adam optimizer)를 모두 사용하여 training 하게 됩니다.
+mode 2는 adam optimizer만을 사용하여 training 합니다.
+mode 3은 normalization만을 사용하지만, optimizer가 없을 수 없기 때문에 adagrad optimizer를 사용합니다.
+mode 4가 base로, normalization, adam optimizer 모두 사용하지 않습니다.
+UM 적용은 mode 1, 미적용은 mode 4입니다.
+
+트레이닝이 끝난 후
+team22_nn_[mode].sav로 neural net을 저장하고,
+input_scaler_[mode].sav로 input scaler를 저장하고,
+price_scaler_[mode].sav로 price scaler를 저장하고,
+means_[mode]로 means(nan 채우는데 필요)를 저장합니다.
+각 scaler의 경우 normalization에 필요한 것이므로, mode 2와 mode 4에선 저장하지 않습니다.
+
+python team22_test.py
+를 실행하면 역시나 mode를 고르라는 메시지가 출력되고, 고르시면 됩니다.
+
+predict가 끝나면 결과가
+predict_[mode].csv파일로 저장됩니다.
